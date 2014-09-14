@@ -43,70 +43,137 @@ class Player: SKScene {
         
         println(diceRoll)
         
-        if diceRoll < 31 {
-            let moveAction = SKAction.moveTo(board.getBoard()[diceRoll - 1], duration: 2)
+        if diceRoll < 101 {
+            let moveAction = SKAction.moveTo(board.getBoard()[diceRoll], duration: 2)
             pion.runAction(moveAction, completion: {
                 
                 let position = self.board.getBoard()[self.diceRoll - 1]
                 
                 switch self.diceRoll {
-                case 3:
+                case 7:
                     pion.runAction(
                         self.ladderSound,
                         completion: {
-                            self.movePionTo(pion, index: 21, label: label, labelValue: labelValue)
+                            self.movePionTo(pion, index: 11, label: label, labelValue: labelValue)
                     })
-                    self.diceRoll = 22
-                case 5:
-                    pion.runAction(
-                        self.ladderSound,
-                        completion: {
-                            self.movePionTo(pion, index: 7, label: label, labelValue: labelValue)
-                    })
-                    self.diceRoll = 8
-                case 11:
-                    pion.runAction(
-                        self.ladderSound,
-                        completion: {
-                            self.movePionTo(pion, index: 25, label: label, labelValue: labelValue)
-                    })
-                    self.diceRoll = 26
+                    self.diceRoll = 11
                 case 20:
                     pion.runAction(
                         self.ladderSound,
                         completion: {
-                            self.movePionTo(pion, index: 28, label: label, labelValue: labelValue)
+                            self.movePionTo(pion, index: 38, label: label, labelValue: labelValue)
                     })
-                    self.diceRoll = 29
-                case 17:
+                    self.diceRoll = 38
+                case 28:
+                    pion.runAction(
+                        self.ladderSound,
+                        completion: {
+                            self.movePionTo(pion, index: 65, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 65
+                case 36:
+                    pion.runAction(
+                        self.ladderSound,
+                        completion: {
+                            self.movePionTo(pion, index: 44, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 44
+                case 42:
+                    pion.runAction(
+                        self.ladderSound,
+                        completion: {
+                            self.movePionTo(pion, index: 63, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 63
+                case 51:
+                    pion.runAction(
+                        self.ladderSound,
+                        completion: {
+                            self.movePionTo(pion, index: 67, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 67
+                case 62:
+                    pion.runAction(
+                        self.ladderSound,
+                        completion: {
+                            self.movePionTo(pion, index: 81, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 81
+                case 71:
+                    pion.runAction(
+                        self.ladderSound,
+                        completion: {
+                            self.movePionTo(pion, index: 90, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 90
+                case 86:
+                    pion.runAction(
+                        self.ladderSound,
+                        completion: {
+                            self.movePionTo(pion, index: 97, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 97
+                    
+                    
+                    
+                    
+                case 25:
                     pion.runAction(
                         self.snakeSound,
                         completion: {
                             self.movePionTo(pion, index: 3, label: label, labelValue: labelValue)
                     })
-                    self.diceRoll = 4
-                case 19:
+                    self.diceRoll = 3
+                case 56:
                     pion.runAction(
                         self.snakeSound,
                         completion: {
-                            self.movePionTo(pion, index: 6, label: label, labelValue: labelValue)
+                            self.movePionTo(pion, index: 48, label: label, labelValue: labelValue)
                     })
-                    self.diceRoll = 7
-                case 21:
+                    self.diceRoll = 48
+                case 59:
+                    pion.runAction(
+                        self.snakeSound,
+                        completion: {
+                            self.movePionTo(pion, index: 1, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 1
+                case 69:
+                    pion.runAction(
+                        self.snakeSound,
+                        completion: {
+                            self.movePionTo(pion, index: 32, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 32
+                case 83:
+                    pion.runAction(
+                        self.snakeSound,
+                        completion: {
+                            self.movePionTo(pion, index: 57, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 57
+                case 91:
+                    pion.runAction(
+                        self.snakeSound,
+                        completion: {
+                            self.movePionTo(pion, index: 73, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 73
+                case 94:
+                    pion.runAction(
+                        self.snakeSound,
+                        completion: {
+                            self.movePionTo(pion, index: 26, label: label, labelValue: labelValue)
+                    })
+                    self.diceRoll = 26
+                case 99:
                     pion.runAction(
                         self.snakeSound,
                         completion: {
                             self.movePionTo(pion, index: 8, label: label, labelValue: labelValue)
                     })
-                    self.diceRoll = 9
-                case 27:
-                    pion.runAction(
-                        self.snakeSound,
-                        completion: {
-                            self.movePionTo(pion, index: 0, label: label, labelValue: labelValue)
-                    })
-                    self.diceRoll = 1
-                case 30:
+                    self.diceRoll = 8
+                case 100:
                     println("Partie termnée")
                     pion.runAction(self.endGameSound)
                     self.diceRoll = 0
@@ -118,7 +185,7 @@ class Player: SKScene {
             })
             
             
-            if diceRoll == 30 {
+            if diceRoll == 100 {
                 return true
             }
         } else {

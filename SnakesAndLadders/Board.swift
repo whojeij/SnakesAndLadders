@@ -14,48 +14,28 @@ class Board {
     
     var board = [CGPoint(x:0, y:0)]
     
-    let gridWidth = 270
+    let gridWidth = 300
     let gridHeight = 300
-    let numRows = 5
-    let numCols = 6
-    let gridFirstCase:CGPoint = CGPoint(x: 40, y: 170)
+    let numRows = 10
+    let numCols = 10
+    let gridFirstCase:CGPoint = CGPoint(x: 16, y: 171)
     
     
     init() {
-        board[0] = getTilePosition(row: 0, column: 0)
-        board.append(getTilePosition(row: 0, column: 1))
-        board.append(getTilePosition(row: 0, column: 2))
-        board.append(getTilePosition(row: 0, column: 3))
-        board.append(getTilePosition(row: 0, column: 4))
-        board.append(getTilePosition(row: 0, column: 5))
-        
-        board.append(getTilePosition(row: 1, column: 5))
-        board.append(getTilePosition(row: 1, column: 4))
-        board.append(getTilePosition(row: 1, column: 3))
-        board.append(getTilePosition(row: 1, column: 2))
-        board.append(getTilePosition(row: 1, column: 1))
-        board.append(getTilePosition(row: 1, column: 0))
-        
-        board.append(getTilePosition(row: 2, column: 0))
-        board.append(getTilePosition(row: 2, column: 1))
-        board.append(getTilePosition(row: 2, column: 2))
-        board.append(getTilePosition(row: 2, column: 3))
-        board.append(getTilePosition(row: 2, column: 4))
-        board.append(getTilePosition(row: 2, column: 5))
-        
-        board.append(getTilePosition(row: 3, column: 5))
-        board.append(getTilePosition(row: 3, column: 4))
-        board.append(getTilePosition(row: 3, column: 3))
-        board.append(getTilePosition(row: 3, column: 2))
-        board.append(getTilePosition(row: 3, column: 1))
-        board.append(getTilePosition(row: 3, column: 0))
-        
-        board.append(getTilePosition(row: 4, column: 0))
-        board.append(getTilePosition(row: 4, column: 1))
-        board.append(getTilePosition(row: 4, column: 2))
-        board.append(getTilePosition(row: 4, column: 3))
-        board.append(getTilePosition(row: 4, column: 4))
-        board.append(getTilePosition(row: 4, column: 5))
+        for i in 0...9 {
+            switch i {
+            case 0, 2, 4, 6, 8:
+                for j in 0...9 {
+                    board.append(getTilePosition(row: i, column: j))
+                }
+            case 1, 3, 5, 7, 9:
+                for j in 0...9 {
+                    board.append(getTilePosition(row: i, column: 9-j))
+                }
+            default:
+                break
+            }
+        }
     }
     
     func getBoard() -> [CGPoint]{
@@ -68,12 +48,15 @@ class Board {
         return CGSize(width: tileWidth, height: tileHeight)
     }
     
+    
     func getTilePosition(row r:Int, column c:Int) -> CGPoint {
         let tileSize = calculateTileSize()
-        let x = Int(gridFirstCase.x) + (c * (Int(tileSize.width)))
-        let y = Int(gridFirstCase.y) + (r * (Int(tileSize.height)))
+        let x = Int(gridFirstCase.x) + (c * (Int(tileSize.width))) + (c)
+        let y = Int(gridFirstCase.y) + (r * (Int(tileSize.height))) + (r + 1)
         return CGPoint(x: x, y: y)
     }
+    
+
     
     
     

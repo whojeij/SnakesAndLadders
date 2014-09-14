@@ -53,10 +53,10 @@ class GameScene: SKScene {
         background.zPosition = -2
         self.addChild(background)
         
-        let snakesPlan = SKSpriteNode(imageNamed: "snakes")
-        snakesPlan.anchorPoint = CGPoint(x:-0.05, y:-0.5)
-        snakesPlan.zPosition = -2
-        self.addChild(snakesPlan)
+        let board = SKSpriteNode(imageNamed: "board")
+        board.anchorPoint = CGPoint(x:0, y:-0.5)
+        board.zPosition = -2
+        self.addChild(board)
         
         playerButton.position = CGPoint(x: 160, y: 90)
         self.addChild(playerButton)
@@ -113,7 +113,6 @@ class GameScene: SKScene {
                 
                 runAction(diceSound)
                 
-                
                 if nbOfRoll < 2 {
                     chooseFirstPlayer()
                 } else {
@@ -167,7 +166,6 @@ class GameScene: SKScene {
                         labelTitle.text = "Player one will begin first"
                         label.text = "Player two turn"
                     }
-                    
                 }
             }
         }
